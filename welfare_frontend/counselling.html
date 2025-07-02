@@ -44,132 +44,115 @@
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
-    <header class="hero-section py-5 mb-4">
-        <div class="container text-center text-white">
-            <h1 class="display-4 fw-bold mb-3">Emergencies Section</h1>
-            <p class="lead mb-4">Raise emergencies with ease</p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="emergency.html" class="btn btn-danger btn-lg">
-                    <i class="fas fa-ambulance me-2"></i> Emergency Help
-                </a>
+<header class="hero-section py-5 mb-4 bg-success text-white text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-2">Guidance & Counseling</h1>
+        <p class="lead">Schedule sessions to get support in your career, education, and social well-being.</p>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="container mb-5">
+    <!-- Tabs for Counseling Areas -->
+    <ul class="nav nav-tabs mb-4" id="counselTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="career-tab" data-bs-toggle="tab" data-bs-target="#career" type="button" role="tab">Career</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab">Education</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="social-tab" data-bs-toggle="tab" data-bs-target="#social" type="button" role="tab">Social Life</button>
+        </li>
+    </ul>
+
+    <div class="tab-content mb-5" id="counselTabsContent">
+        <div class="tab-pane fade show active" id="career" role="tabpanel">
+            <p class="mb-3">Explore career options, polish your resume, prepare for interviews, or get guidance on career paths aligned with your course.</p>
+        </div>
+        <div class="tab-pane fade" id="education" role="tabpanel">
+            <p class="mb-3">Receive academic coaching, learning strategy sessions, or mentorship on handling coursework and exams as an international student.</p>
+        </div>
+        <div class="tab-pane fade" id="social" role="tabpanel">
+            <p class="mb-3">Get help navigating relationships, adjusting to campus life, and finding balance in your social and academic journey.</p>
+        </div>
+    </div>
+
+    <!-- Meet the Mentors -->
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Meet Your Mentors</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <img src="https://randomuser.me/api/portraits/women/47.jpg" class="card-img-top" alt="Mentor">
+                    <div class="card-body">
+                        <h5 class="card-title">Grace Wanjiku</h5>
+                        <p class="card-text">Career Coach | HR Consultant</p>
+                        <span class="badge bg-success">Career</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="card-img-top" alt="Mentor">
+                    <div class="card-body">
+                        <h5 class="card-title">Daniel Otieno</h5>
+                        <p class="card-text">Academic Mentor | MSc. Computer Science</p>
+                        <span class="badge bg-primary">Education</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" class="card-img-top" alt="Mentor">
+                    <div class="card-body">
+                        <h5 class="card-title">Fatima Said</h5>
+                        <p class="card-text">Wellness & Social Life Mentor</p>
+                        <span class="badge bg-warning text-dark">Social Life</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Main Content -->
-    <main class="container mb-5">
-        <!-- Featured Hostels Section -->
-        <section class="mb-5">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2><i class="fas fa-building me-2"></i>Featured Hostels</h2>
-                <a href="booking.html" class="btn btn-outline-primary">View All Hostels</a>
-            </div>
-            
-            <div class="row g-4" id="hostelList">
-                <!-- Hostels loaded via JavaScript -->
-            </div>
-            
-            <div class="text-center mt-4">
-                <div class="spinner-border text-primary" id="loadingSpinner" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="mb-5">
-            <h2 class="text-center mb-4">Our Services</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body text-center">
-                            <div class="service-icon mb-3">
-                                <i class="fas fa-home"></i>
-                            </div>
-                            <h3 class="card-title">Accommodation</h3>
-                            <p class="card-text">Find safe, affordable housing near your campus with verified reviews from fellow students.</p>
-                            <a href="booking.html" class="btn btn-primary stretched-link">Explore Options</a>
-                        </div>
+    <!-- Booking Form -->
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Schedule a One-on-One Session</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form>
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" required>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body text-center">
-                            <div class="service-icon mb-3">
-                                <i class="fas fa-ambulance"></i>
-                            </div>
-                            <h3 class="card-title">Emergency Response</h3>
-                            <p class="card-text">24/7 access to medical, security, and psychological support when you need it most.</p>
-                            <a href="emergency.html" class="btn btn-danger stretched-link">Get Help</a>
-                        </div>
+                    <div class="mb-3">
+                        <label for="studentEmail" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="studentEmail" required>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body text-center">
-                            <div class="service-icon mb-3">
-                                <i class="fas fa-comments"></i>
-                            </div>
-                            <h3 class="card-title">Counseling</h3>
-                            <p class="card-text">Multilingual mental health professionals available for confidential sessions.</p>
-                            <a href="counseling.html" class="btn btn-success stretched-link">Book Session</a>
-                        </div>
+                    <div class="mb-3">
+                        <label for="counselType" class="form-label">Type of Counseling</label>
+                        <select class="form-select" id="counselType" required>
+                            <option value="">Choose...</option>
+                            <option value="career">Career</option>
+                            <option value="education">Education</option>
+                            <option value="social">Social Life</option>
+                        </select>
                     </div>
-                </div>
+                    <div class="mb-3">
+                        <label for="preferredDate" class="form-label">Preferred Date</label>
+                        <input type="date" class="form-control" id="preferredDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="notes" class="form-label">Additional Notes</label>
+                        <textarea class="form-control" id="notes" rows="3" placeholder="Briefly describe your concern..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Book Appointment</button>
+                </form>
             </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="testimonials bg-light p-5 rounded-3 mb-5">
-            <h2 class="text-center mb-5">What Students Say</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle me-3" width="60" alt="Student">
-                                <div>
-                                    <h5 class="mb-0">Maria Gonzalez</h5>
-                                    <small class="text-muted">Spain | Computer Science</small>
-                                </div>
-                            </div>
-                            <p class="card-text">"The emergency service saved me when I had a health crisis at 2 AM. Responders arrived in 10 minutes and spoke my language!"</p>
-                            <div class="text-warning">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-3" width="60" alt="Student">
-                                <div>
-                                    <h5 class="mb-0">Ahmed Mahmoud</h5>
-                                    <small class="text-muted">Egypt | Business Administration</small>
-                                </div>
-                            </div>
-                            <p class="card-text">"Found a perfect hostel through this platform that matched my budget and was just 5 minutes from my lectures."</p>
-                            <div class="text-warning">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
     <!-- Footer -->
     <footer class="bg-dark text-white pt-4 pb-2">
