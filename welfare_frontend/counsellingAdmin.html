@@ -1,78 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - International Student Welfare System</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Counselling Management - Student Welfare</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="Student Welfare Logo" width="30" height="30" class="d-inline-block align-top me-2">
-                Student Welfare
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                <span class="visually-hidden">Toggle navigation</span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="booking.html"><i class="fas fa-bed me-1"></i>Accommodation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="emergency.html"><i class="fas fa-ambulance me-1"></i>Emergency</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="counselling.html"><i class="fas fa-comments me-1"></i>Counseling</a>
-                    </li>
-                </ul>
-                <div class="d-flex">
-                    <a href="login.html" class="btn btn-outline-light me-2"><i class="fas fa-sign-in-alt me-1"></i> Login</a>
-                    <a href="signup.html" class="btn btn-light"><i class="fas fa-user-plus me-1"></i>signup</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-<body class="bg-light">
-  <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
-      <h3 class="text-center mb-4">Student Welfare Login</h3>
-      <form action="dashboard.html" method="POST">
-        <div class="mb-3">
-          <label for="userRole" class="form-label">Login As</label>
-          <select class="form-select" id="userRole" required>
-            <option value="">-- Select Role --</option>
-            <option value="student">International Student</option>
-            <option value="admin">University Administration</option>
-            <option value="hostel">Student Hostel</option>
-            <option value="emergency">Emergency Team</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email Address</label>
-          <input type="email" class="form-control" id="email" required />
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" required />
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Login</button>
-      </form>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="Logo" width="30" height="30" class="me-2" />
+      Student Welfare
+    </a>
+    <div class="d-flex">
+      <a href="admin-dashboard.html" class="btn btn-outline-light me-2">Dashboard</a>
+      <a href="login.html" class="btn btn-outline-light">Logout</a>
     </div>
   </div>
+</nav>
 
+<!-- Main Content -->
+<main class="container py-5">
+  <h2 class="mb-4 text-center">Counselling Session Management</h2>
+
+  <!-- Upcoming Sessions -->
+  <section class="mb-5">
+    <h4 class="mb-3"><i class="fas fa-calendar-alt me-2"></i> Upcoming Sessions</h4>
+    <table class="table table-bordered table-hover">
+      <thead class="table-light">
+        <tr>
+          <th>Student Name</th>
+          <th>Topic</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Counselor</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>Career Guidance</td>
+          <td>2025-07-05</td>
+          <td>10:00 AM</td>
+          <td>
+            <select class="form-select form-select-sm">
+              <option selected>Assign</option>
+              <option>Ms. Achieng</option>
+              <option>Mr. Patel</option>
+              <option>Dr. Kamau</option>
+            </select>
+          </td>
+          <td><span class="badge bg-warning">Pending</span></td>
+          <td>
+            <button class="btn btn-success btn-sm me-1">Approve</button>
+            <button class="btn btn-danger btn-sm">Decline</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Fatima Noor</td>
+          <td>Social Adjustment</td>
+          <td>2025-07-06</td>
+          <td>2:00 PM</td>
+          <td>Dr. Kamau</td>
+          <td><span class="badge bg-success">Approved</span></td>
+          <td>
+            <button class="btn btn-outline-secondary btn-sm" disabled>Approved</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Session Requests -->
+  <section>
+    <h4 class="mb-3"><i class="fas fa-envelope-open-text me-2"></i> New Requests</h4>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>Student Name</th>
+            <th>Topic</th>
+            <th>Preferred Date</th>
+            <th>Preferred Time</th>
+            <th>Request Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lee Wang</td>
+            <td>Academic Stress</td>
+            <td>2025-07-08</td>
+            <td>11:30 AM</td>
+            <td>Struggling with 2 units, needs advice</td>
+            <td>
+              <button class="btn btn-primary btn-sm me-1">Schedule</button>
+              <button class="btn btn-outline-danger btn-sm">Decline</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Aisha Said</td>
+            <td>Homesickness</td>
+            <td>2025-07-09</td>
+            <td>4:00 PM</td>
+            <td>Feeling isolated and wants support</td>
+            <td>
+              <button class="btn btn-primary btn-sm me-1">Schedule</button>
+              <button class="btn btn-outline-danger btn-sm">Decline</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
  <!-- Footer -->
     <footer class="bg-dark text-white pt-4 pb-2">
         <div class="container">
@@ -116,14 +164,12 @@
             </div>
             <hr>
             <div class="text-center">
-                <p class="mb-0">&copy; 2025 International Student Welfare System. All rights reserved.</p>
+                <p class="mb-0">&copy; 2024 International Student Welfare System. All rights reserved.</p>
             </div>
         </div>
     </footer>
  <!-- Bootstrap JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap"></script>
     <!-- Custom JS -->
     <script>
         // Hostel Data Loading with Animation
