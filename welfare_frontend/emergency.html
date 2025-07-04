@@ -47,36 +47,76 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+                        <a class="nav-link active" href="community.html"><i class="fas fa-home me-1"></i> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="booking.html"><i class="fas fa-bed me-1"></i> Hostels</a>
+                        <a class="nav-link" href="booking.html"><i class="fas fa-bed me-1"></i>Accommodation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="emergency.html"><i class="fas fa-ambulance me-1"></i> Emergency</a>
+                        <a class="nav-link" href="emergency.html"><i class="fas fa-ambulance me-1"></i>Emergency</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="counselling.html"><i class="fas fa-comments me-1"></i> Counseling</a>
+                        <a class="nav-link" href="counselling.html"><i class="fas fa-comments me-1"></i>Counseling</a>
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <a href="login.html" class="btn btn-outline-light me-2"><i class="fas fa-sign-in-alt me-1"></i> Login</a>
+                    <a href="login.html" class="btn btn-outline-light me-2"><i class="fas fa-sign-in-alt me-1"></i>Login</a>
                 </div>
             </div>
         </div>
     </nav>
-
-<!-- Emergency Banner -->
+    <!-- Emergency Banner -->
 <div class="emergency-header">
     <h1><i class="fas fa-ambulance me-2"></i>Emergency Support</h1>
     <p>If you're in danger or need urgent help, use the resources below immediately.</p>
 </div>
+<!-- STEP 4: Emergency Reporting (Student Side) -->
+<section class="container my-5">
+  <h2 class="text-center mb-4 text-danger">Emergency Assistance</h2>
+  <div class="row">
+    <!-- Emergency Form -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm border-danger">
+        <div class="card-body">
+          <form id="emergencyForm">
+            <div class="mb-3">
+              <label for="emergencyType" class="form-label">Type of Emergency</label>
+              <select class="form-select" id="emergencyType" required>
+                <option value="">-- Select --</option>
+                <option value="medical">Medical</option>
+                <option value="security">Security</option>
+                <option value="psychological">Psychological</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" id="description" rows="4" required placeholder="Briefly describe the emergency..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger w-100">Report Emergency</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
+    <!-- Emergency Report Summary -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 shadow-sm border-warning">
+        <div class="card-body text-center">
+          <i class="fas fa-file-alt fa-3x text-warning mb-3"></i>
+          <h5 class="card-title">My Emergency Report</h5>
+          <p class="card-text">Track responses and updates to your emergency reports.</p>
+          <a href="emergency-report.html" class="btn btn-warning text-white">View Report</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
 <!-- Emergency Services Section -->
 <div class="container my-5">
     <div class="row">
         <!-- Universal Emergency -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="emergency-card d-flex">
                 <i class="fas fa-phone-volume emergency-icon me-3"></i>
                 <div>
@@ -87,7 +127,7 @@
             </div>
         </div>
         <!-- St. John's Ambulance -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="emergency-card d-flex">
                 <i class="fas fa-briefcase-medical emergency-icon me-3"></i>
                 <div>
@@ -99,7 +139,7 @@
             </div>
         </div>
         <!-- Red Cross -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="emergency-card d-flex">
                 <i class="fas fa-first-aid emergency-icon me-3"></i>
                 <div>
@@ -111,7 +151,7 @@
             </div>
         </div>
         <!-- Campus Security -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="emergency-card d-flex">
                 <i class="fas fa-shield-alt emergency-icon me-3"></i>
                 <div>
@@ -121,9 +161,31 @@
                 </div>
             </div>
         </div>
+        <!-- Mental Health Support -->
+        <div class="col-md-4">
+            <div class="emergency-card d-flex">
+                <i class="fas fa-head-side-virus emergency-icon me-3"></i>
+                <div>
+                    <h5>Mental Health Support</h5>
+                    <p>For psychological emergencies, counseling, or crisis intervention</p>
+                    <a href="tel:+254700555456" class="btn btn-danger btn-sm"><i class="fas fa-phone-alt me-1"></i> Call Mental Health Support</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fire Department -->
+        <div class="col-md-4">  
+            <div class="emergency-card d-flex">
+                <i class="fas fa-fire emergency-icon me-3"></i>
+                <div>
+                    <h5>Fire Department</h5>
+                    <p>For fire emergencies, evacuations, and fire safety advice</p>
+                    <a href="tel:999" class="btn btn-danger btn-sm"><i class="fas fa-phone-alt me-1"></i> Call 999</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
+</section>
  <!-- Footer -->
     <footer class="bg-dark text-white pt-4 pb-2">
         <div class="container">
@@ -196,7 +258,7 @@
                     },
                     { 
                         id: 2, 
-                        name: "Keja Hostels", 
+                        name: "Qwejani Hostels", 
                         location: "2km from Main Campus", 
                         slots: 3,
                         price: "KES 12,000/month",
