@@ -17,9 +17,25 @@
       <img src="images/logo.png" alt="Logo" width="30" height="30" class="me-2" />
       Student Welfare
     </a>
-    <div class="d-flex">
-      <a href="login.html" class="btn btn-outline-light">Logout</a>
-    </div>
+              <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="community.html"><i class="fas fa-home me-1"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html"><i class="fas fa-bed me-1"></i>Accommodation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="emergency.html"><i class="fas fa-ambulance me-1"></i>Emergency</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="counselling.html"><i class="fas fa-comments me-1"></i>Counseling</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-outline-light me-2"><i class="fas fa-sign-in-alt me-1"></i>Logout</a>
+                </div>
+            </div>
   </div>
 </nav>
 
@@ -32,12 +48,26 @@
 </header>
 
 <!-- Main Section -->
+ 
 <main class="container py-5">
-
   <div class="row g-4">
-
+      <div class="text-center mb-4">
+        <img src="images/banner.jpg" alt="Student Welfare Banner" class="img-fluid rounded">
+          <div class="about-section mt-4">
+            <h2>About Us</h2>
+            <p>We are dedicated to providing essential services and resources for international students</p>
+            <p> at universities across Kenya. Our mission is to create a supportive environment </p>
+            <p> ensuring a smooth transition and successful academic experience.</p>
+            <p>From accommodation to emergency support and counseling, we are here to help you thrive in your new environment.</p>
+          </div>
+        </div>
+        <div class="text-center mb-4">
+          <h2>Our Services</h2>
+          <p>Explore the range of services we offer to support your academic journey.</p>
+        </div>
+        
     <!-- Hostels -->
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="card h-100 shadow-sm">
         <div class="card-body text-center">
           <i class="fas fa-bed fa-3x text-primary mb-3"></i>
@@ -49,7 +79,7 @@
     </div>
 
     <!-- Raise Emergency -->
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="card h-100 shadow-sm">
         <div class="card-body text-center">
           <i class="fas fa-ambulance fa-3x text-danger mb-3"></i>
@@ -61,7 +91,7 @@
     </div>
 
     <!-- Emergency Report -->
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="card h-100 shadow-sm">
         <div class="card-body text-center">
           <i class="fas fa-file-alt fa-3x text-warning mb-3"></i>
@@ -73,7 +103,7 @@
     </div>
 
     <!-- Counselling -->
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="card h-100 shadow-sm">
         <div class="card-body text-center">
           <i class="fas fa-comments fa-3x text-success mb-3"></i>
@@ -85,7 +115,7 @@
     </div>
 
     <!-- Hostel Report -->
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="card h-100 shadow-sm">
         <div class="card-body text-center">
           <i class="fas fa-chart-bar fa-3x text-info mb-3"></i>
@@ -97,7 +127,7 @@
     </div>
 
     <!-- Contact Admin -->
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="card h-100 shadow-sm">
         <div class="card-body text-center">
           <i class="fas fa-envelope fa-3x text-dark mb-3"></i>
@@ -127,8 +157,8 @@
                 <div class="col-md-2 mb-3">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-white">Home</a></li>
-                        <li><a href="booking.html" class="text-white">Hostels</a></li>
+                        <li><a href="community.html" class="text-white">Home</a></li>
+                        <li><a href="booking.html" class="text-white">Accommodation</a></li>
                         <li><a href="emergency.html" class="text-white">Emergency</a></li>
                         <li><a href="counseling.html" class="text-white">Counseling</a></li>
                     </ul>
@@ -153,7 +183,7 @@
             </div>
             <hr>
             <div class="text-center">
-                <p class="mb-0">&copy; 2024 International Student Welfare System. All rights reserved.</p>
+                <p class="mb-0">&copy; 2025 International Student Welfare System. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -180,7 +210,7 @@
                     },
                     { 
                         id: 2, 
-                        name: "Keja Hostels", 
+                        name: "Qwejani Hostels", 
                         location: "2km from Main Campus", 
                         slots: 3,
                         price: "KES 12,000/month",

@@ -24,22 +24,8 @@
                 <span class="visually-hidden">Toggle navigation</span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="booking.html"><i class="fas fa-bed me-1"></i>Accommodation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="emergency.html"><i class="fas fa-ambulance me-1"></i>Emergency</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="counselling.html"><i class="fas fa-comments me-1"></i>Counseling</a>
-                    </li>
-                </ul>
                 <div class="d-flex">
-                    <a href="login.html" class="btn btn-outline-light me-2"><i class="fas fa-sign-in-alt me-1"></i> Login</a>
+                    <a href="login.html" class="btn btn-outline-light me-2"><i class="fas fa-sign-in-alt me-1"></i>Login</a>
                     <a href="signup.html" class="btn btn-light"><i class="fas fa-user-plus me-1"></i>signup</a>
                 </div>
             </div>
@@ -49,8 +35,8 @@
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
       <h3 class="text-center mb-4">Student Welfare Login</h3>
-      <form action="dashboard.html" method="POST">
-        <div class="mb-3">
+      <form action="community.html" method="POST" id="loginForm" class="needs-validation" novalidate >
+        <div class="mb-3" id="userRoleField">
           <label for="userRole" class="form-label">Login As</label>
           <select class="form-select" id="userRole" required>
             <option value="">-- Select Role --</option>
@@ -60,15 +46,27 @@
             <option value="emergency">Emergency Team</option>
           </select>
         </div>
-        <div class="mb-3">
+        <div class="mb-3" id="emailField" >
           <label for="email" class="form-label">Email Address</label>
           <input type="email" class="form-control" id="email" required />
+            <div class="invalid-feedback">
+                Please enter a valid email address. 
+            </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-3" id="passwordField">
           <label for="password" class="form-label">Password</label>
           <input type="password" class="form-control" id="password" required />
+            <div class="invalid-feedback">
+                Please enter your password.
+            </div>
         </div>
         <button type="submit" class="btn btn-primary w-100">Login</button>
+        <div class="text-center mt-3">
+          <p class="mb-0">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+        <div class="text-center mt-2">
+          <p class="mb-0"><a href="forgot-password.html">Forgot Password?</a></p>
+        </div>
       </form>
     </div>
   </div>
