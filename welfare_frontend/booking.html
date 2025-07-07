@@ -16,9 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="Student Welfare Logo" width="30" height="30" class="d-inline-block align-top me-2">
-                Student Welfare
-            </a>
+                <img src="images/logo.png" alt="Student Welfare Logo" width="30" height="30" class="d-inline-block align-top me-2">Student Welfare </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 <span class="visually-hidden">Toggle navigation</span>
@@ -26,20 +24,20 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+                        <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i>Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="booking.html"><i class="fas fa-bed me-1"></i> Hostels</a>
+                        <a class="nav-link" href="booking.html"><i class="fas fa-bed me-1"></i>Accommodation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="emergency.html"><i class="fas fa-ambulance me-1"></i> Emergency</a>
+                        <a class="nav-link" href="emergency.html"><i class="fas fa-ambulance me-1"></i>Emergency</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="counselling.html"><i class="fas fa-comments me-1"></i> Counseling</a>
+                        <a class="nav-link" href="counselling.html"><i class="fas fa-comments me-1"></i>Counseling</a>
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <a href="login.html" class="btn btn-outline-light me-2"><i class="fas fa-sign-in-alt me-1"></i> Login</a>
+                    <a href="login.html" class="btn btn-outline-light me-2"><i class="fas fa-sign-in-alt me-1"></i>Logout</a>
                 </div>
             </div>
         </div>
@@ -176,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             ${hostel.amenities.map(a => `<span class="badge bg-light text-dark me-1">${a}</span>`).join('')}
                         </div>
                         <a href="booking-details.html?id=${hostel.id}" class="btn btn-${hostel.slots > 0 ? 'primary' : 'secondary'} w-100" ${hostel.slots === 0 ? 'disabled' : ''}>
-                            ${hostel.slots > 0 ? 'Book Now' : 'Fully Booked'}
+                            ${hostel.slots >0 ? 'Book Now' : 'Fully Booked'}
                         </a>
                     </div>
                 </div>
