@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Emergency Support - Student Welfare</title>
+    <!-- Bootstrap 5 CSS for a Responsive Webpage-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+        .emergency-header {
+            background-color: #dc3545;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .emergency-card {
+            border-left: 5px solid #dc3545;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.05);
+        }
+        .emergency-icon {
+            font-size: 2rem;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+     <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Student Welfare Logo" width="30" height="30" class="d-inline-block align-top me-2">
+                Student Welfare
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="visually-hidden">Toggle navigation</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="community.html"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html"><i class="fas fa-bed me-1"></i>Accommodation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="emergency.html"><i class="fas fa-ambulance me-1"></i>Emergency</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="counselling.html"><i class="fas fa-comments me-1"></i>Counseling</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-outline-light me-2"><i class="fas fa-sign-in-alt me-1"></i>Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Emergency Banner -->
+<div class="emergency-header">
+    <h1><i class="fas fa-ambulance me-2"></i>Emergency Support</h1>
+    <p>If you're in danger or need urgent help, use the resources below immediately.</p>
+</div>
+<!-- STEP 4: Emergency Reporting (Student Side) -->
+<section class="container my-5">
+  <h2 class="text-center mb-4 text-danger">Emergency Assistance</h2>
+  <div class="row">
+    <!-- Emergency Form -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm border-danger">
+        <div class="card-body">
+          <form id="emergencyForm" method="POST" action="/api/emergency-report/">
+  <div class="mb-3">
+    <label for="emergencyType" class="form-label">Type of Emergency</label>
+    <select class="form-select" id="emergencyType" name="type" required>
+      <option value="">-- Select --</option>
+      <option value="medical">Medical</option>
+      <option value="security">Security</option>
+      <option value="psychological">Psychological</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-danger w-100">Report Emergency</button>
+</form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Emergency Report Summary -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 shadow-sm border-warning">
+        <div class="card-body text-center">
+          <i class="fas fa-file-alt fa-3x text-warning mb-3"></i>
+          <h5 class="card-title">My Emergency Report</h5>
+          <p class="card-text">Track responses and updates to your emergency reports.</p>
+          <a href="emergency-report.html" class="btn btn-warning text-white">View Report</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+<!-- Emergency Services Section -->
+<div class="container my-5">
+    <div class="row">
+        <!-- Universal Emergency -->
+        <div class="col-md-4">
+            <div class="emergency-card d-flex">
+                <i class="fas fa-phone-volume emergency-icon me-3"></i>
+                <div>
+                    <h5>Universal Emergency Number</h5>
+                    <p><strong>911</strong> – Call for Fire, Police, or Medical Emergencies</p>
+                    <a href="tel:911" class="btn btn-danger btn-sm"><i class="fas fa-phone-alt me-1"></i> Call 911</a>
+                </div>
+            </div>
+        </div>
+        <!-- St. John's Ambulance -->
+        <div class="col-md-4">
+            <div class="emergency-card d-flex">
+                <i class="fas fa-briefcase-medical emergency-icon me-3"></i>
+                <div>
+                    <h5>St John's Ambulance</h5>
+                    <p>Emergency medical support and ambulance services</p>
+                    <a href="tel:+254722207429" class="btn btn-danger btn-sm me-2"><i class="fas fa-phone-alt me-1"></i> Call +254 722 207429</a>
+                    <a href="https://stjohnkenya.org" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fas fa-link me-1"></i> Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- Red Cross -->
+        <div class="col-md-4">
+            <div class="emergency-card d-flex">
+                <i class="fas fa-first-aid emergency-icon me-3"></i>
+                <div>
+                    <h5>Kenya Red Cross</h5>
+                    <p>Disaster response, first aid, emergency relief and rescue services</p>
+                    <a href="tel:1199" class="btn btn-danger btn-sm me-2"><i class="fas fa-phone-alt me-1"></i> Call 1199</a>
+                    <a href="https://www.redcross.or.ke" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fas fa-link me-1"></i> Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- Campus Security -->
+        <div class="col-md-4">
+            <div class="emergency-card d-flex">
+                <i class="fas fa-shield-alt emergency-icon me-3"></i>
+                <div>
+                    <h5>Campus Security</h5>
+                    <p>Available 24/7 for on-campus incidents, theft, or threats</p>
+                    <a href="tel:+254700555123" class="btn btn-danger btn-sm"><i class="fas fa-phone-alt me-1"></i> Call Campus Security</a>
+                </div>
+            </div>
+        </div>
+        <!-- Mental Health Support -->
+        <div class="col-md-4">
+            <div class="emergency-card d-flex">
+                <i class="fas fa-head-side-virus emergency-icon me-3"></i>
+                <div>
+                    <h5>Mental Health Support</h5>
+                    <p>For psychological emergencies, counseling, or crisis intervention</p>
+                    <a href="tel:+254700555456" class="btn btn-danger btn-sm"><i class="fas fa-phone-alt me-1"></i> Call Mental Health Support</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fire Department -->
+        <div class="col-md-4">  
+            <div class="emergency-card d-flex">
+                <i class="fas fa-fire emergency-icon me-3"></i>
+                <div>
+                    <h5>Fire Department</h5>
+                    <p>For fire emergencies, evacuations, and fire safety advice</p>
+                    <a href="tel:999" class="btn btn-danger btn-sm"><i class="fas fa-phone-alt me-1"></i> Call 999</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+ <!-- Footer -->
+    <footer class="bg-dark text-white pt-4 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Student Welfare</h5>
+                    <p>Supporting international students through their academic journey with essential services and resources.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="booking.html" class="text-white">Hostels</a></li>
+                        <li><a href="emergency.html" class="text-white">Emergency</a></li>
+                        <li><a href="counseling.html" class="text-white">Counseling</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope me-2"></i> help@studentwelfare.edu</li>
+                        <li><i class="fas fa-phone me-2"></i> +254 700 123 456</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Nairobi, Kenya</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Newsletter</h5>
+                    <form>
+                        <div class="mb-2">
+                            <input type="email" class="form-control" placeholder="Your email">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 International Student Welfare System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+ <!-- Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap"></script>
+    <!-- Custom JS -->
+    <script>
+        // Hostel Data Loading with Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const hostelList = document.getElementById('hostelList');
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                const hostels = [
+                    { 
+                        id: 1, 
+                        name: "Qwetu Student Residences", 
+                        location: "1.2km from Main Campus", 
+                        slots: 5,
+                        price: "KES 15,000/month",
+                        amenities: ["WiFi", "Laundry", "Security", "Study Rooms"],
+                        rating: 4.7
+                    },
+                    { 
+                        id: 2, 
+                        name: "Qwejani Hostels", 
+                        location: "2km from Main Campus", 
+                        slots: 3,
+                        price: "KES 12,000/month",
+                        amenities: ["WiFi", "Cafeteria", "24/7 Security"],
+                        rating: 4.3
+                    },
+                    { 
+                        id: 3, 
+                        name: "University View Apartments", 
+                        location: "On Campus", 
+                        slots: 2,
+                        price: "KES 18,000/month",
+                        amenities: ["Furnished", "Cleaning", "Gym", "Study Lounge"],
+                        rating: 4.9
+                    }
+                ];
+
+                hostelList.innerHTML = hostels.map(hostel => `
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 hostel-card">
+                            <div class="card-img-top hostel-image" style="background-image: url('images/hostel-${hostel.id}.jpg')"></div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">${hostel.name}</h5>
+                                    <span class="badge bg-${hostel.slots > 0 ? 'success' : 'danger'}">
+                                        ${hostel.slots > 0 ? `${hostel.slots} Available` : 'Fully Booked'}
+                                    </span>
+                                </div>
+                                <p class="card-text text-muted">
+                                    <i class="fas fa-map-marker-alt text-primary me-1"></i> ${hostel.location}
+                                </p>
+                                <p class="fw-bold">${hostel.price}</p>
+                                <div class="mb-3">
+                                    ${'<i class="fas fa-star text-warning"></i>'.repeat(Math.floor(hostel.rating))}
+                                    ${hostel.rating % 1 > 0 ? '<i class="fas fa-star-half-alt text-warning"></i>' : ''}
+                                    <span class="ms-1">${hostel.rating}</span>
+                                </div>
+                                <div class="amenities mb-3">
+                                    ${hostel.amenities.map(amenity => `
+                                        <span class="badge bg-light text-dark me-1 mb-1">${amenity}</span>
+                                    `).join('')}
+                                </div>
+                                <button class="btn btn-primary w-100 book-btn" data-id="${hostel.id}" ${hostel.slots === 0 ? 'disabled' : ''}>
+                                    ${hostel.slots > 0 ? 'Book Now' : 'Waitlist'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Hide loading spinner
+                loadingSpinner.style.display = 'none';
+
+                // Add event listeners to booking buttons
+                document.querySelectorAll('.book-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const hostelId = this.getAttribute('data-id');
+                        // In a real app, this would redirect to booking page or show a modal
+                        window.location.href = `booking-details.html?id=${hostelId}`;
+                    });
+                });
+            }, 1500); // Simulate 1.5s loading time
+        });
+    </script>
+    <script>
+  document.getElementById("emergencyForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const type = document.getElementById("emergencyType").value;
+    const description = document.getElementById("description").value;
+
+    const emergency = {
+      student: "Current User",  // You can customize this if logged in
+      type,
+      description,
+      time: new Date().toLocaleString()
+    };
+
+    // Get existing emergencies from localStorage or initialize empty array
+    const existing = JSON.parse(localStorage.getItem("emergencyReports")) || [];
+    existing.push(emergency);
+
+    // Save updated list
+    localStorage.setItem("emergencyReports", JSON.stringify(existing));
+
+    alert("Emergency report sent!");
+    document.getElementById("emergencyForm").reset();
+  });
+</script>
+
+</body>
+</html>
