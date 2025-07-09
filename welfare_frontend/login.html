@@ -9,14 +9,14 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <!--link rel="stylesheet" href="css/style.css"-->
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="Student Welfare Logo" width="30" height="30" class="d-inline-block align-top me-2">
+                <img src="images/flags.jpeg" alt="Student Welfare Logo" width="30" height="30" class="d-inline-block align-top me-2">
                 Student Welfare
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
@@ -208,5 +208,59 @@
             }, 1500); // Simulate 1.5s loading time
         });
     </script>
+    <script>
+document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const role = document.getElementById('userRole').value;
+
+    fetch('http://127.0.0.1:8000/api/login/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password, role })
+    })
+    .then(res => {
+    if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+    return res.json();
+})
+
+    .then(data => {
+        if (data.user_id) {
+            
+            localStorage.setItem('userRole', role);
+
+            switch(role) {
+                case 'student':
+                    window.location.href = 'community.html';
+                    break;
+                case 'admin':
+                    window.location.href = 'admin-dashboard.html';
+                    break;
+                case 'hostel':
+                    window.location.href = 'hostel-dashboard.html';
+                    break;
+                case 'emergency':
+                    window.location.href = 'emergency-dashboard.html';
+                    break;
+                default:
+                    alert('Unknown role');
+            }
+        } else {
+            alert(data.error || 'Login failed');
+        }
+    })
+    .catch(err => {
+        console.error('Login error:', err);
+        alert('Something went wrong!');
+    });
+});
+</script>
+
 </body>
 </html>

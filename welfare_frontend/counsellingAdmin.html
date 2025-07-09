@@ -256,5 +256,29 @@
             }, 1500); // Simulate 1.5s loading time
         });
     </script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sessionTableBody = document.querySelector('tbody'); // Adjust this to your actual <tbody> if needed
+    const sessions = JSON.parse(localStorage.getItem('counselingSessions')) || [];
+
+    sessions.forEach(session => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${session.name}</td>
+        <td>${session.type}</td>
+        <td>${session.date}</td>
+        <td>Not Set</td>
+        <td>${session.notes}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-1">Schedule</button>
+          <button class="btn btn-outline-danger btn-sm">Decline</button>
+        </td>
+      `;
+      sessionTableBody.appendChild(row);
+    });
+  });
+</script>
+
+
 </body>
 </html>

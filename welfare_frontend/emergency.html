@@ -78,22 +78,23 @@
     <div class="col-md-6 mb-4">
       <div class="card shadow-sm border-danger">
         <div class="card-body">
-          <form id="emergencyForm">
-            <div class="mb-3">
-              <label for="emergencyType" class="form-label">Type of Emergency</label>
-              <select class="form-select" id="emergencyType" required>
-                <option value="">-- Select --</option>
-                <option value="medical">Medical</option>
-                <option value="security">Security</option>
-                <option value="psychological">Psychological</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
-              <textarea class="form-control" id="description" rows="4" required placeholder="Briefly describe the emergency..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-danger w-100">Report Emergency</button>
-          </form>
+          <form id="emergencyForm" method="POST" action="/api/emergency-report/">
+  <div class="mb-3">
+    <label for="emergencyType" class="form-label">Type of Emergency</label>
+    <select class="form-select" id="emergencyType" name="type" required>
+      <option value="">-- Select --</option>
+      <option value="medical">Medical</option>
+      <option value="security">Security</option>
+      <option value="psychological">Psychological</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-danger w-100">Report Emergency</button>
+</form>
+
         </div>
       </div>
     </div>
@@ -323,5 +324,42 @@
             }, 1500); // Simulate 1.5s loading time
         });
     </script>
+    <script>
+  document.getElementById("emergencyForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const type = document.getElementById("emergencyType").value;
+    const description = document.getElementById("description").value;
+
+    const emergency = {
+      student: "Current User",  // You can customize this if logged in
+      type,
+      description,
+      time: new Date().toLocaleString()
+    };
+
+    // Get existing emergencies from localStorage or initialize empty array
+    const existing = JSON.parse(localStorage.getItem("emergencyReports")) || [];
+    existing.push(emergency);
+
+    // Save updated list
+    localStorage.setItem("emergencyReports", JSON.stringify(existing));
+
+    alert("Emergency report sent!");
+    document.getElementById("emergencyForm").reset();
+  });
+</script>
+<script>
+    const allowedPages = ['login.html', 'dashboard.html'];
+
+    const currentPage = window.location.pathname.split('/').pop();
+
+    if (!allowedPages.includes(currentPage) && localStorage.getItem('isLoggedIn') !== 'true') {
+        alert("You must log in to access this page.");
+        window.location.href = "login.html";
+    }
+</script>
+
+
 </body>
 </html>

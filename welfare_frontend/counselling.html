@@ -116,7 +116,7 @@
     <div class="col-md-5">
       <div class="card shadow-sm border-success">
         <div class="card-body">
-          <form>
+          <form id="counselForm">
             <div class="mb-3">
               <label for="fullName" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="fullName" required>
@@ -302,5 +302,39 @@
             }, 1500); // Simulate 1.5s loading time
         });
     </script>
+    
+
+<script>
+  document.getElementById('counselForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const session = {
+      name: document.getElementById('fullName').value,
+      email: document.getElementById('studentEmail').value,
+      type: document.getElementById('counselType').value,
+      date: document.getElementById('preferredDate').value,
+      notes: document.getElementById('notes').value,
+    };
+
+    let sessions = JSON.parse(localStorage.getItem('counselingSessions')) || [];
+    sessions.push(session);
+    localStorage.setItem('counselingSessions', JSON.stringify(sessions));
+
+    alert("Counseling session booked successfully!");
+    this.reset();
+  });
+</script>
+<script>
+    const allowedPages = ['login.html', 'dashboard.html'];
+
+    const currentPage = window.location.pathname.split('/').pop();
+
+    if (!allowedPages.includes(currentPage) && localStorage.getItem('isLoggedIn') !== 'true') {
+        alert("You must log in to access this page.");
+        window.location.href = "login.html";
+    }
+</script>
+
+
 </body>
 </html>

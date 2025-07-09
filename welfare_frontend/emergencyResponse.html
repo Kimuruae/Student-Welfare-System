@@ -50,7 +50,7 @@
         <th>Action</th>
       </tr>
     </thead>
-    <tbody id="emergencyReports">
+    <tbody id="emergencyReports"></tbody>
       <tr>
         <td>Jane Doe</td>
         <td>Medical</td>
@@ -197,5 +197,28 @@
             }, 1500); // Simulate 1.5s loading time
         });
     </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const reports = JSON.parse(localStorage.getItem("emergencyReports")) || [];
+
+    const tableBody = document.getElementById("emergencyReports");
+
+    if (reports.length === 0) {
+      tableBody.innerHTML = '<tr><td colspan="5" class="text-center">No emergency reports yet.</td></tr>';
+    } else {
+      tableBody.innerHTML = reports.map(report => `
+        <tr>
+          <td>${report.student}</td>
+          <td>${report.type}</td>
+          <td>${report.description}</td>
+          <td>${report.time}</td>
+          <td><button class="btn btn-success btn-sm">Mark Responded</button></td>
+        </tr>
+      `).join('');
+    }
+  });
+</script>
+
+
 </body>
 </html>
