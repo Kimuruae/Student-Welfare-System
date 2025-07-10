@@ -17,9 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
-from internationalSwelfare import views
+import sys
+import os
+from api.views import LoginView
+
+from api import urls as api_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('api.urls')),
+    path('api/', include('api.urls')),
 ]
+
+
 

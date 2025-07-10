@@ -47,8 +47,9 @@
           </select>
         </div>
         <div class="mb-3" id="emailField" >
-          <label for="email" class="form-label">Email Address</label>
-          <input type="email" class="form-control" id="email" required />
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" required />
+
             <div class="invalid-feedback">
                 Please enter a valid email address. 
             </div>
@@ -60,6 +61,8 @@
                 Please enter your password.
             </div>
         </div>
+        <div id="errorMsg" class="text-danger mb-3" style="display:none;"></div>
+
         <button type="submit" class="btn btn-primary w-100">Login</button>
         <div class="text-center mt-3">
           <p class="mb-0">Don't have an account? <a href="signup.html">Sign Up</a></p>
@@ -207,12 +210,12 @@
                 });
             }, 1500); // Simulate 1.5s loading time
         });
-    </script>
+        </script>
     <script>
 document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const email = document.getElementById('email').value;
+    const username = document.getElementById('email').value;  
     const password = document.getElementById('password').value;
     const role = document.getElementById('userRole').value;
 
@@ -221,44 +224,55 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password, role })
+        body: JSON.stringify({ username, password, role })
     })
     .then(res => {
-    if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
-    }
-    return res.json();
-})
-
+        if (!res.ok) {
+            return res.json().then(data => {
+                throw new Error(data.error || 'Login failed');
+            });
+        }
+        return res.json();
+    })
     .then(data => {
-        if (data.user_id) {
-            
-            localStorage.setItem('userRole', role);
+        // Clear any previous errors
+        showError('');
 
-            switch(role) {
-                case 'student':
-                    window.location.href = 'community.html';
-                    break;
-                case 'admin':
-                    window.location.href = 'admin-dashboard.html';
-                    break;
-                case 'hostel':
-                    window.location.href = 'hostel-dashboard.html';
-                    break;
-                case 'emergency':
-                    window.location.href = 'emergency-dashboard.html';
-                    break;
-                default:
-                    alert('Unknown role');
-            }
-        } else {
-            alert(data.error || 'Login failed');
+        // Store role
+        localStorage.setItem('userRole', role);
+
+        // Redirect based on role
+        switch (role) {
+            case 'student':
+                window.location.href = 'community.html';
+                break;
+            case 'admin':
+                window.location.href = 'admin-dashboard.html';
+                break;
+            case 'hostel':
+                window.location.href = 'hostel-dashboard.html';
+                break;
+            case 'emergency':
+                window.location.href = 'emergency-dashboard.html';
+                break;
+            default:
+                showError('Unknown role');
         }
     })
     .catch(err => {
-        console.error('Login error:', err);
-        alert('Something went wrong!');
+        showError(err.message);
     });
+
+    function showError(message) {
+        const errorDiv = document.getElementById('errorMsg');
+        if (message) {
+            errorDiv.innerText = message;
+            errorDiv.style.display = 'block';
+        } else {
+            errorDiv.innerText = '';
+            errorDiv.style.display = 'none';
+        }
+    }
 });
 </script>
 

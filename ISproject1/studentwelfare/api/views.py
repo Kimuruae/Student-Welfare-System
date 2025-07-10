@@ -33,27 +33,28 @@ def register_admin(request):
     except Exception as e:
         return Response({'error': str(e)}, status=400)
 
+class LoginView(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        username = request.data.get('username')  # changed from email
+        password = request.data.get('password')
+        role = request.data.get('role')
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            if role == 'admin' and not user.is_staff:
+                return Response({'error': 'User is not an admin'}, status=status.HTTP_403_FORBIDDEN)
+            return Response({
+                'message': 'Login successful',
+                'user_id': user.id,
+                'role': role
+            }, status=status.HTTP_200_OK)
+        return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-
-@api_view(['POST'])
-@authentication_classes([SessionAuthentication, BasicAuthentication])
-@permission_classes([AllowAny])
-def LoginView(request):
-    email = request.data.get('email')
-    password = request.data.get('password')
-    role = request.data.get('role')
-
-    user = authenticate(username=email, password=password)
-    if user is not None:
-        if role == 'admin' and not user.is_staff:
-            return Response({'error': 'User is not an admin'}, status=status.HTTP_403_FORBIDDEN)
-        return Response({
-            'message': 'Login successful',
-            'user_id': user.id,
-            'role': role
-        })
-    return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
     
 
@@ -83,4 +84,6 @@ class EmergencyReportView(APIView):
             )
             return Response({"message": "Emergency reported!"}, status=201)
         except Exception as e:
-            return Response({"error": str(e)}, status=500)        
+            return Response({"error": str(e)}, status=500)    
+from django.http import JsonResponse
+
