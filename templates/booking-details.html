@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Hostel - Student Welfare</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-top me-2">Student Welfare
+      </a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary text-white py-4 text-center">
+    <h1>Book Your Hostel</h1>
+    <p class="lead">Confirm your stay with a few quick steps.</p>
+  </header>
+
+  <!-- Booking Section -->
+  <main class="container my-5">
+    <div class="row">
+      <div class="col-md-6">
+        <img id="hostelImage" src="" class="img-fluid rounded mb-3" alt="Hostel Image">
+        <ul class="list-group mb-3">
+          <li class="list-group-item">
+            <strong>Name:</strong> <span id="hostelName"></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Location:</strong> <span id="hostelLocation"></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Price:</strong> <span id="hostelPrice"></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Amenities:</strong> <span id="hostelAmenities"></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Slots Left:</strong> <span id="hostelSlots"></span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-body">
+            <h4 class="card-title mb-3">Booking Form</h4>
+            <form id="bookingForm">
+              <div class="mb-3">
+                <label for="studentName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="studentName" required>
+              </div>
+              <div class="mb-3">
+                <label for="studentEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="studentEmail" required>
+              </div>
+              <div class="mb-3">
+                <label for="duration" class="form-label">Duration (in months)</label>
+                <input type="number" class="form-control" id="duration" min="1" max="12" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Confirm Booking</button>
+            </form>
+            <div id="confirmationMsg" class="alert alert-success mt-3 d-none">
+              Booking confirmed! 🎉 We'll contact you via email.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 International Student Welfare System</p>
+  </footer>
+
+  <script>
+    // Sample data (same as previous page)
+    const hostels = [
+      {
+        id: 1,
+        name: "Qwetu Student Residences",
+        location: "1.2km from Main Campus",
+        slots: 5,
+        price: "KES 15,000/month",
+        amenities: ["WiFi", "Laundry", "Security", "Study Rooms"],
+        image: "images/hostel-1.jpg"
+      },
+      {
+        id: 2,
+        name: "Qwejani Hostels",
+        location: "2km from Main Campus",
+        slots: 3,
+        price: "KES 12,000/month",
+        amenities: ["WiFi", "Cafeteria", "24/7 Security", "Furnished", "Cleaning", "Gym", "Study Lounge"],
+        image: "images/hostel-2.jpg"
+      },
+      {
+        id: 3,
+        name: "University View Apartments",
+        location: "On Campus",
+        slots: 0,
+        price: "KES 18,000/month",
+        amenities: ["Furnished", "Cleaning", "Gym", "Study Lounge"],
+        image: "images/hostel-3.jpg"
+      }
+    ];
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const hostelId = parseInt(urlParams.get("id"));
+    const selectedHostel = hostels.find(h => h.id === hostelId);
+
+    if (selectedHostel) {
+      document.getElementById("hostelImage").src = selectedHostel.image;
+      document.getElementById("hostelName").innerText = selectedHostel.name;
+      document.getElementById("hostelLocation").innerText = selectedHostel.location;
+      document.getElementById("hostelPrice").innerText = selectedHostel.price;
+      document.getElementById("hostelAmenities").innerText = selectedHostel.amenities.join(", ");
+      document.getElementById("hostelSlots").innerText = selectedHostel.slots;
+
+      if (selectedHostel.slots === 0) {
+        document.getElementById("bookingForm").innerHTML = `<div class="alert alert-danger">Sorry, this hostel is fully booked.</div>`;
+      }
+    } else {
+      document.querySelector("main").innerHTML = `<div class="alert alert-warning">Hostel not found.</div>`;
+    }
+
+    document.getElementById("bookingForm")?.addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("confirmationMsg").classList.remove("d-none");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
