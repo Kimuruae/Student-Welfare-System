@@ -35,7 +35,7 @@
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
       <h3 class="text-center mb-4">Student Welfare Login</h3>
-      <form action="community.html" method="POST" id="loginForm" class="needs-validation" novalidate >
+      <form action="index.html" method="POST" id="loginForm" class="needs-validation" novalidate >
         <div class="mb-3" id="userRoleField">
           <label for="userRole" class="form-label">Login As</label>
           <select class="form-select" id="userRole" required>
@@ -211,70 +211,78 @@
             }, 1500); // Simulate 1.5s loading time
         });
         </script>
-    <script>
-document.getElementById('loginForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+ <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('loginForm');
 
-    const username = document.getElementById('email').value;  
-    const password = document.getElementById('password').value;
-    const role = document.getElementById('userRole').value;
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    fetch('http://127.0.0.1:8000/api/login/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password, role })
-    })
-    .then(res => {
-        if (!res.ok) {
-            return res.json().then(data => {
-                throw new Error(data.error || 'Login failed');
-            });
-        }
-        return res.json();
-    })
-    .then(data => {
-        // Clear any previous errors
-        showError('');
-
-        // Store role
-        localStorage.setItem('userRole', role);
-
-        // Redirect based on role
-        switch (role) {
-            case 'student':
-                window.location.href = 'community.html';
-                break;
-            case 'admin':
-                window.location.href = 'admin-dashboard.html';
-                break;
-            case 'hostel':
-                window.location.href = 'hostel-dashboard.html';
-                break;
-            case 'emergency':
-                window.location.href = 'emergency-dashboard.html';
-                break;
-            default:
-                showError('Unknown role');
-        }
-    })
-    .catch(err => {
-        showError(err.message);
-    });
-
-    function showError(message) {
+        const usernameEl = document.getElementById('username');
+        const passwordEl = document.getElementById('password');
+        const roleEl = document.getElementById('userRole');
         const errorDiv = document.getElementById('errorMsg');
-        if (message) {
-            errorDiv.innerText = message;
-            errorDiv.style.display = 'block';
-        } else {
-            errorDiv.innerText = '';
-            errorDiv.style.display = 'none';
+
+        if (!usernameEl || !passwordEl || !roleEl) {
+            alert("Some form fields are missing.");
+            return;
         }
-    }
+
+        const username = usernameEl.value;
+        const password = passwordEl.value;
+        const role = roleEl.value;
+
+        fetch('http://127.0.0.1:8000/api/login/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password, role })
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(data => {
+                    throw new Error(data.error || 'Login failed');
+                });
+            }
+            return res.json();
+        })
+        .then(data => {
+            showError(""); // clear error
+            localStorage.setItem('userRole', role);
+
+            switch (role) {
+                case 'student':
+                    window.location.href = 'index.html';
+                    break;
+                case 'admin':
+                    window.location.href = 'admindashboard.html';
+                    break;
+                case 'hostel':
+                    window.location.href = 'bookingAdmin.html';
+                    break;
+                case 'emergency':
+                    window.location.href = 'emergencyResponse.html';
+                    break;
+                default:
+                    showError('Unknown role');
+            }
+        })
+        .catch(err => {
+            showError(err.message);
+        });
+
+        function showError(message) {
+            if (message) {
+                errorDiv.innerText = message;
+                errorDiv.style.display = 'block';
+            } else {
+                errorDiv.innerText = '';
+                errorDiv.style.display = 'none';
+            }
+        }
+    });
 });
 </script>
-
 </body>
 </html>
