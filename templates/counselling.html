@@ -324,16 +324,7 @@
     this.reset();
   });
 </script>
-<script>
-    const allowedPages = ['login.html', 'dashboard.html'];
 
-    const currentPage = window.location.pathname.split('/').pop();
-
-    if (!allowedPages.includes(currentPage) && localStorage.getItem('isLoggedIn') !== 'true') {
-        alert("You must log in to access this page.");
-        window.location.href = "login.html";
-    }
-</script>
 
 
 </body>
